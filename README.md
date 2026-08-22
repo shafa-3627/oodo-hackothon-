@@ -1,3 +1,41 @@
+# Dayflow HRMS - Oodo Hackathon Project Split
+
+This repository contains the Dayflow Human Resource Management System (HRMS) codebase divided logically into three parts, one for each participating team member.
+
+## Project Structure
+
+The project has been split into three distinct directories corresponding to the architectural roles of the team members:
+
+```text
+oodo-hackothon-/
+├── member-1/                 # Frontend UI & Pages (Pages & Components)
+│   └── src/
+│       ├── components/       # Layout, Navigation Components
+│       └── pages/            # Attendance, Employees, Profile, SignIn, SignUp, TimeOff pages
+│
+├── member-2/                 # Backend, Mock APIs & Database (Services & Context)
+│   └── src/
+│       ├── context/          # AuthContext, HRContext (state management & workflows)
+│       └── data/             # mockData (mock DB schemas and records)
+│
+├── member-3/                 # Database Shell, Data Types & Configurations (Entry point)
+│   ├── public/               # Static assets (favicons, etc.)
+│   ├── src/
+│   │   ├── types/            # index.ts (TypeScript type definitions)
+│   │   ├── App.tsx           # App Router & Root Context Provider wrappers
+│   │   ├── main.tsx          # Vite Entry Point
+│   │   └── index.css         # Tailwind & custom CSS imports
+│   ├── package.json          # Dependency manifest
+│   ├── vite.config.ts        # Vite configuration with scanning rules
+│   ├── tailwind.config.js    # Tailwind configuration scanning member-1, 2, and 3
+│   ├── postcss.config.js     # PostCSS configuration
+│   ├── tsconfig.json         # TS config including all 3 member src folders
+│   └── index.html            # Vite HTML template
+│
+├── README.md                 # Project separation documentation
+└── .gitignore                # Root git ignore file (applied to all subfolders)
+```
+
 # 🌐 Dayflow – Human Resource Management System
 
 > **Every workday, perfectly aligned.**
@@ -360,7 +398,25 @@ Recommended implementation architecture:
               └──────────┬─────────┘
                          ▼
                     MySQL Database
-```
+## How to Run the Project
+
+Since the configuration files and the entry point are managed by **Member 3**, the project is run and built from the `member-3/` directory:
+
+1. Ensure dependencies are installed at the root or within the configuration scope.
+2. Navigate to `member-3/`:
+   ```bash
+   cd member-3
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Build the application for production:
+   ```bash
+   npm run build
+   ```
+
+All imports across folders are resolved using clean relative path mappings, keeping the modules decoupled while maintaining a fully compiling and working build.
 
 ---
 
@@ -1482,3 +1538,4 @@ The final Dayflow system should provide a centralized HR platform where:
 ```
 
 **Dayflow — Every workday, perfectly aligned.**
+>>>>>>> 46e929df1e0ccbd1f8d575f5cec4bd395220d601
